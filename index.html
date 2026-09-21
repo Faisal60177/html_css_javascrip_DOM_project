@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Activity Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <header class="page-header">
+        <div>
+            <h1>Student Activity Dashboard</h1>
+            <p class="subtitle">
+                Use this dashboard to manage student activities: add students,
+                search them, change their status, and remove them.
+            </p>
+        </div>
+        <button id="darkModeToggle" class="mode-btn" type="button">
+            <span id="modeIcon">🌙</span>
+            <span id="modeLabel">Dark Mode</span>
+        </button>
+    </header>
+
+    <section class="stats-grid">
+        <div class="stat-card stat-blue">
+            <span class="stat-label">Total Students</span>
+            <span class="stat-value" id="totalCount">0</span>
+        </div>
+        <div class="stat-card stat-green">
+            <span class="stat-label">Active Students</span>
+            <span class="stat-value" id="activeCount">0</span>
+        </div>
+        <div class="stat-card stat-orange">
+            <span class="stat-label">Inactive Students</span>
+            <span class="stat-value" id="inactiveCount">0</span>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Add a New Student</h2>
+
+        <form id="studentForm" class="student-form">
+            <div class="field">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="e.g. John Doe" autocomplete="off">
+            </div>
+
+            <div class="field">
+                <label for="studentId">Student ID</label>
+                <input type="text" id="studentId" placeholder="e.g. CSE-101" autocomplete="off">
+            </div>
+
+            <div class="field">
+                <label for="studentDept">Department</label>
+                <input type="text" id="studentDept" placeholder="e.g. CSE" autocomplete="off">
+            </div>
+
+            <div class="field">
+                <label for="studentStatus">Status</label>
+                <select id="studentStatus">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+
+            <button type="submit" class="add-btn">+ Add Student</button>
+        </form>
+    </section>
+
+    <section class="panel">
+        <div class="students-header">
+            <h2>Students</h2>
+
+            <div class="students-controls">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by name or ID...">
+
+                <div class="filter-tabs" id="filterTabs">
+                    <button class="filter-btn active" type="button" data-filter="all">All</button>
+                    <button class="filter-btn" type="button" data-filter="active">Active</button>
+                    <button class="filter-btn" type="button" data-filter="inactive">Inactive</button>
+                </div>
+            </div>
+        </div>
+
+        <ul id="studentList" class="student-list"></ul>
+
+        <div id="emptyState" class="empty-state">
+            <p class="empty-title">No students added yet.</p>
+            <p class="empty-sub">Add your first student using the form above.</p>
+        </div>
+    </section>
+
+    <footer class="page-footer">
+        <p>Built with plain HTML, CSS and JavaScript to practice DOM manipulation.</p>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
